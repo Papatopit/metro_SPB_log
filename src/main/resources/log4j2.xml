@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+
+        <File name="StationInfo" fileName="logs/info.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <MarkerFilter marker="INPUT_INFO"/>
+        </File>
+        <File name="Errors" fileName="logs/errors.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <MarkerFilter marker="EXEPTION"/>
+        </File>
+        <File name="WrongStation" fileName="logs/wrongStations.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <MarkerFilter marker="WRONG_STATION"/>
+        </File>
+    </appenders>
+
+
+    <loggers>
+        <root level="ALL">
+            <appender-ref ref="StationInfo" level="INFO"/>
+            <appender-ref ref="Errors" level="ERROR"/>
+            <appender-ref ref="WrongStation" level="DEBUG"/>
+        </root>
+    </loggers>
+</configuration>
